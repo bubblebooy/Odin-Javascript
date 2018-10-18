@@ -1,0 +1,71 @@
+body{
+  margin: 0;
+  background-color: #333;
+}
+
+.navbar-dark{
+  background-color: #333;
+  color: white;
+  padding-left: 10%;
+  /* padding-top: 3px; */
+  /* height: 3em; */
+}
+
+.navbar-tab{
+  display: inline-block;
+  padding: 10px;
+  padding-bottom: 8px;
+  font-size: 2em;
+}
+.navbar-tab:hover{
+  transform: scale(1.25);
+  /* font-size: 2.2em; */
+
+}
+
+.active{
+  /* background-color: #555; */
+  text-decoration: underline;
+}
+
+.carousel{
+  width: 100%;
+  max-height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+.carousel-img{
+  width: 100%;
+  position: relative;
+  bottom: 20px;
+}
+.carousel-title{
+  color: darkorange;
+  position: absolute;
+  bottom: 20px;
+  margin-bottom: 0;
+  margin-left: 50px;
+  font-size: 12vw;
+  font-family: 'Dancing Script', cursive;
+  text-shadow: 2px 2px 8px #000;
+}
+
+main{
+  color: Silver;
+  max-width: 600px;
+  font-size: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5em;
+}
+
+@media screen and (max-width: 571px) {
+  .carousel{
+    margin-bottom: -20px;
+  }
+}
+
+li{
+  margin-left: 2em;
+  font-size: .75em;
+}

@@ -47,7 +47,6 @@ function addBookToLibrary(book){
 
 function renderBooks(library){
   library.forEach(addBookToTable);
-
 }
 
 function addBookToTable(book){
