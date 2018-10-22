@@ -1,0 +1,76 @@
+body{
+  margin: 0;
+  height: 100vh;
+  background-color: grey;
+}
+.title-bar{
+  background-color: MidnightBlue;
+  color: White;
+  text-align: center;
+  font-size: 3em;
+}
+.title-bar > h1{
+  margin: 0;
+}
+.grid-container{
+  height: 100%;
+  display: grid;
+  grid-template-columns: 12em 5fr;
+}
+
+#lists-nav{
+  background: SlateGrey;
+  color: White;
+  font-family: sans-serif;
+}
+.lists-title{
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  border-bottom-style: solid;
+  border-color: DimGrey;
+}
+.active{
+  color: darkorange;
+}
+.lists-nav-li, .new-list{
+  cursor: pointer;
+}
+.new-list{
+  margin-left: 32px;
+}
+/* .new-list:hover{
+  cursor: pointer;
+} */
+.new-list:before{
+  content: "+";
+  position: relative;
+  left: -8px;
+}
+
+#todo-container{
+  background-color: AliceBlue;
+  padding: 10px;
+}
+.todo-list-title{
+  display: inline;
+}
+.todo-table{
+  display: table;
+  width: 100%;
+}
+.table-row{
+  display: table-row;
+}
+.table-cell{
+  display: table-cell;
+}
+.todo-table .table-row:nth-child(odd){
+  background-color: #ccddec;
+}
+.btn-edit{
+  background: none;
+  border-style: none;
+  font-size: .8em;
+  color: #2e4d69;
+}
