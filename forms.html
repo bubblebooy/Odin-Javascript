@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/forms.css">
+    <title>Library</title>
+  </head>
+  <body>
+    <h1>Forms Warmup</h1>
+    <form id="form" action="#" method="post">
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" placeholder="Your Email address" required> <br>
+      <label for="emailConfirmation">Email Confirmation</label>
+      <input type="email" name="emailConfirmation" placeholder="Your Email address" required> <br>
+      <label for="country">Country</label>
+      <input type="text" name="country" placeholder="Country" required minlength="2" maxlength="75"> <br>
+      <label for="zipCode">Zip Code</label>
+      <input type="text" name="zipCode" placeholder="Zip Code" required pattern="^[0-9]{5}(?:-[0-9]{4})?$"> <br>
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="Password" required minlength="6" maxlength="32"> <br>
+      <label for="passwordConfirmation">Password Confirmation</label>
+      <input type="password" name="passwordConfirmation" placeholder="Password" required minlength="6" maxlength="32"> <br>
+      <button type="submit" name="button">Submit</button>
+    </form>
+
+    <script src="scripts/forms.js" ></script>
+  </body>
