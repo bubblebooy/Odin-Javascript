@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Odin-Javascript/weather/build/precache-manifest.b80d63d393172f2a972264a920197631.js"
+  "/Odin-Javascript/weather/build/precache-manifest.c1a48d37be77566b40ee3456d667583a.js"
 );
 
 workbox.clientsClaim();
