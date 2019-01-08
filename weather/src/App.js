@@ -23,7 +23,7 @@ class App extends Component {
       city: city,
       temp: "Loading..."
     })
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=e686eb81691141fa6168377f12b326cd`, {mode: 'cors'})
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=e686eb81691141fa6168377f12b326cd`, {mode: 'cors'})
       .then(function(response){
         return response.json()
       })
