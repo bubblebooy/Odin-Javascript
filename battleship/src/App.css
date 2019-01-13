@@ -1,1 +1,21 @@
-
+.column{
+  padding-left: 30px;
+}
+.numberRow{
+  margin-left: 6px;
+}
+.board button{
+  background-color: lightblue;
+  width: 3em;
+  height: 3em;
+  border-style: none;
+}
+.board .ship{
+  background-color: grey;
+}
+.board .shot{
+  background-color: white;
+}
+.board .ship.shot{
+  background-color: red;
+}

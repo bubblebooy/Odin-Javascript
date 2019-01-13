@@ -31,7 +31,7 @@ it('testShip isSunk true only after 4 hits', () => {
 
 let testGameboard
 it('Creats a Gameboard', () => {
-  testGameboard = Gameboard(10,10)
+  testGameboard = new Gameboard({})
 })
 
 it('allSunk true when there are no ships',() => {
