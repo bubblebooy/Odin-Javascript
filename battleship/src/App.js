@@ -2,10 +2,21 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      turn : true,
+    }
+    this.handleTurn = this.handleTurn.bind(this)
+  }
   componentDidMount(){
     document.title = "Battleship"
   }
-
+  handleTurn() {
+    this.setState({
+      turn : !this.state.turn
+    })
+  }
   render() {
     return (
       <div className="App">
@@ -19,7 +30,9 @@ class App extends Component {
             PROJECT: BATTLESHIP
           </a>
         </header>
-        <Gameboard rows = {10} columns = {10}/>
+        <Gameboard rows = {10} columns = {10} player = {true} handleTurn = {this.handleTurn} turn = {this.state.turn}/>
+        <Gameboard rows = {10} columns = {10} player = {false} handleTurn = {this.handleTurn} turn = {this.state.turn}/>
+        <p> {this.state.turn ? "Your Turn" : "Computer Turn"} </p>
       </div>
     );
   }
@@ -37,9 +50,6 @@ const Ship = (name, length) => {
   return {getName, getLength, hit, isSunk}
 }
 
-// const Position = () => {
-//   return {ship : null, position : null, shot : false}
-// }
 
 class Position extends React.Component {
   constructor(props) {
@@ -70,6 +80,22 @@ class Gameboard extends React.Component {
     this.ships = []
     this.selectedShip = null
     this.rotate = false;
+  }
+
+  componentDidMount(){
+    if (!this.props.player){
+      let availableShips = this.state.availableShips.slice();
+      while (availableShips.length > 0) {
+        try {
+          let selectedShip = Math.floor(Math.random()*availableShips.length)
+          let row = Math.floor(Math.random()*this.props.rows)
+          let column = Math.floor(Math.random()*this.props.columns)
+          this.placeShip(availableShips[selectedShip],row,column,Math.random() > .5)
+          availableShips.splice(selectedShip,1)
+        } catch {}
+      }
+      this.setState({availableShips : availableShips})
+    }
   }
 
   placeShip(ship, row, column, rotation = true) {
@@ -107,6 +133,12 @@ class Gameboard extends React.Component {
     this.setState({board : board})
     if (this.state.board[row][column].ship != null) {
       this.state.board[row][column].ship.hit(this.state.board[row][column].position)
+      if (this.state.board[row][column].ship.isSunk(this.state.board[row][column].ship)) {
+        this.setState({msg : `The ${this.state.board[row][column].ship.getName()} sunk`})
+        if(this.allSunk()){
+          this.setState({msg : `You ${this.props.player ? "Lost" : "Won"} the Game`})
+        }
+      }
       return true
     }
     return false
@@ -116,23 +148,40 @@ class Gameboard extends React.Component {
 
   handleClick(row,column) {
     try{
-      if (this.selectedShip != null){
+      if (this.selectedShip != null && this.props.player){
         this.placeShip(this.state.availableShips[this.selectedShip],row,column,this.rotate)
         let availableShips = this.state.availableShips.slice();
         availableShips.splice(this.selectedShip,1)
         this.setState({availableShips : availableShips})
         this.selectedShip = null
-      } else {
+      } else if(this.state.availableShips.length === 0 && this.props.turn && !this.props.player){
         this.receiveAttack(row,column)
+        this.props.handleTurn()
       }
     } catch(err){
       alert(err.message)
     }
   }
 
+  componentDidUpdate(){
+    if(this.state.availableShips.length === 0 && !this.props.turn && this.props.player) {
+      let loop = true
+      while(loop){
+        let row = Math.floor(Math.random()*this.props.rows)
+        let column = Math.floor(Math.random()*this.props.columns)
+        try {
+          this.receiveAttack(row,column)
+          loop = false
+          this.props.handleTurn()
+        } catch {}
+      }
+    }
+  }
+
   render() {
+    console.log("test");
     return (
-      <div>
+      <div className = {`gameBoard ${this.props.player ? "player":"computer"}`}>
         <div className = "board">
           <div className = "numberRow"> {this.state.board[0].map((_,i)=> <span key = {i} className = "column">{i}</span>)} </div>
           {this.state.board.map((row,i) =>
@@ -144,26 +193,31 @@ class Gameboard extends React.Component {
                   onClick={() => this.handleClick(i,j)}/> ) }
               </div>)}
         </div>
-        <ul className = "availableShips">
-          {this.state.availableShips.map((ship , i) =>
-          <li key = {i}>
-            <button onClick={() => this.selectedShip = i}>
-              {`${ship.getName()} : Size ${ship.getLength()}`}
-            </button>
-          </li>)}
-          <li>
-            <label htmlFor = "rotate"> Rotate </label>
-            <input type = "checkbox" id = "rotate" onClick={() => {
-              this.rotate = !this.rotate
-            }}/>
-          </li>
-        </ul>
+        {(this.state.availableShips.length > 0) &&
+          <ul className = "availableShips">
+            {this.state.availableShips.map((ship , i) =>
+            <li key = {i}>
+              <button onClick={() => this.selectedShip = i}>
+                {`${ship.getName()} : Size ${ship.getLength()}`}
+              </button>
+            </li>)}
+            <li>
+              <label htmlFor = "rotate"> Rotate </label>
+              <input type = "checkbox" id = "rotate" onClick={() => {
+                this.rotate = !this.rotate
+              }}/>
+            </li>
+          </ul>
+        }
+        {this.state.msg}
       </div>
 
     );
   }
   //return {placeShip, receiveAttack, allSunk}
 }
+
+
 
 export default App;
 export {Ship , Gameboard};
