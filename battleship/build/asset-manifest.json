@@ -1,13 +1,13 @@
 {
-  "main.css": "/static/css/main.853a7f8d.chunk.css",
-  "main.js": "/static/js/main.4a22dd24.chunk.js",
-  "main.js.map": "/static/js/main.4a22dd24.chunk.js.map",
-  "static/js/1.fbfa9ac1.chunk.js": "/static/js/1.fbfa9ac1.chunk.js",
-  "static/js/1.fbfa9ac1.chunk.js.map": "/static/js/1.fbfa9ac1.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
-  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/css/main.853a7f8d.chunk.css.map": "/static/css/main.853a7f8d.chunk.css.map",
-  "index.html": "/index.html",
-  "precache-manifest.7aeee0bf4c1e777ed267651ddedf7c41.js": "/precache-manifest.7aeee0bf4c1e777ed267651ddedf7c41.js",
-  "service-worker.js": "/service-worker.js"
+  "main.css": "/Odin-Javascript/battleship/build/static/css/main.853a7f8d.chunk.css",
+  "main.js": "/Odin-Javascript/battleship/build/static/js/main.bbd4bdc2.chunk.js",
+  "main.js.map": "/Odin-Javascript/battleship/build/static/js/main.bbd4bdc2.chunk.js.map",
+  "static/js/1.fbfa9ac1.chunk.js": "/Odin-Javascript/battleship/build/static/js/1.fbfa9ac1.chunk.js",
+  "static/js/1.fbfa9ac1.chunk.js.map": "/Odin-Javascript/battleship/build/static/js/1.fbfa9ac1.chunk.js.map",
+  "runtime~main.js": "/Odin-Javascript/battleship/build/static/js/runtime~main.275d9b1d.js",
+  "runtime~main.js.map": "/Odin-Javascript/battleship/build/static/js/runtime~main.275d9b1d.js.map",
+  "static/css/main.853a7f8d.chunk.css.map": "/Odin-Javascript/battleship/build/static/css/main.853a7f8d.chunk.css.map",
+  "index.html": "/Odin-Javascript/battleship/build/index.html",
+  "precache-manifest.0042cde9b606f5fc3f44f486398b9665.js": "/Odin-Javascript/battleship/build/precache-manifest.0042cde9b606f5fc3f44f486398b9665.js",
+  "service-worker.js": "/Odin-Javascript/battleship/build/service-worker.js"
 }

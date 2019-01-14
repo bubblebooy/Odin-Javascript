@@ -7,8 +7,8 @@
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3"
   },
+  "homepage" : "https://bubblebooy.github.io/Odin-Javascript/battleship/build",
   "scripts": {
-    "homepage" : "https://bubblebooy.github.io/Odin-Javascript/battleship/build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
